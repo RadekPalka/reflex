@@ -9,8 +9,11 @@ let stopper
 
 const startAgain= ()=>{
   document.removeEventListener("keypress", showResult)
+  document.removeEventListener("touchstart", showResult)
+  
   again.textContent= "Naciśnij dowolny przycisk, żeby zacząć jeszcze raz"
   document.addEventListener("keypress", play)
+  document.addEventListener("touchstart", play)
 }
 
 const showResult = () =>{
@@ -29,6 +32,7 @@ const runTimer= () =>{
     console.log(delay);
   },10)
   document.addEventListener("keypress", showResult)
+  document.addEventListener("touchstart", showResult)
 }
 
 const startGame = () => {
@@ -55,6 +59,7 @@ const play = () =>{
   textParagraph.style.color = 'chartreuse'
   again.textContent= ''
   document.removeEventListener('keypress', play)
+  document.removeEventListener("touchstart", play)
   
   textParagraph.textContent = "Naciśnij dowolny przycisk jeżeli ten napis zmieni kolor";
   startStopper()
@@ -62,3 +67,4 @@ const play = () =>{
 
 
 document.addEventListener('keypress', play);
+document.addEventListener("touchstart", play);
